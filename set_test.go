@@ -39,3 +39,12 @@ func TestSetValues(t *testing.T) {
 	}
 
 }
+
+func TestAddMultipleValues(t *testing.T) {
+	set := IntSet{}
+	expected := []int{5, 6, 7, 8}
+	set.Update(expected)
+	if !reflect.DeepEqual(set.Values(), expected) {
+		t.Fatalf("#Update: Set does not bulk add values properly")
+	}
+}

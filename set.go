@@ -8,8 +8,15 @@ func (intSet IntSet) Add(x int) {
 	intSet[x] = struct{}{}
 }
 
-func (intSet IntSet) Update(nums int[]) {
-	
+func (intSet IntSet) Update(nums []int) IntSet {
+	combined := IntSet{}
+	for x, _ := range intSet {
+		combined.Add(x)
+	}
+	for _, x := range nums {
+		combined.Add(x)
+	}
+	return combined
 }
 
 // Is X in Set?
